@@ -8,6 +8,7 @@ unsigned short int qtdTransicoes;
 unsigned short int nPalavras;
 unsigned char fita[100];
 unsigned char palavra[100];
+unsigned char temp_fita[100];
 
 //Declaracao de funcoes
 int main();
