@@ -26,7 +26,7 @@ void print(Transicao transicao);
 *   @param estado_atual Estado em que se encontra a MT
 *   @param simbulo_lido Simbolo lido na fita
 * 
-*   @return A transicao correspondenete encontrada ou uma transicao vazia
+*   @return A transicao correspondenete encontrada ou uma transicao vazia com o estado alvo sendo 0
 */
 Transicao checar_transicao(Transicao transicoes[], unsigned short int qtd_transicoes,unsigned short int estado_atual, unsigned char simbulo_lido);
 

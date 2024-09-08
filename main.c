@@ -5,6 +5,16 @@
 
 Transicao transicoes[50];
 
+void print_s(char string[], int size){
+    for(int i = 0; i < size; i++){
+        if(string[i] != ' '){
+            printf("%c", string[i]);
+        }else{
+            break;
+        }
+    }
+}
+
 void entrada_dados(){
     printf("Alfabeto: ");
     scanf("%s", &alfabeto);
@@ -17,6 +27,7 @@ void entrada_dados(){
     char char_entrada;
     int num_entrada;
     for(int i = 0; i < qtdTransicoes; i++){
+        printf("%d -> ", i+1);
         // Le o numero do estado
         scanf("%d", &num_entrada);
         transicoes[i].estado = num_entrada;
@@ -63,27 +74,37 @@ int main(){
     // Verifica as palavras
     // Pega uma palavra da fita
     int cabecote = 0;
-    
+
+    printf("%s \n", fita);
+
     printf("------------\n");
     for(;cabecote < sizeof(fita); cabecote++){
         int estado = 1;
 
+        //Limpa a palavra
         for(int i = 0; i < sizeof(palavra); i++){
             if(palavra[i] == '-') break;
-            palavra[i] == '-';
+            palavra[i] = ' ';
         }
 
+        //Limpa a fita temporaria
         for(int i = 0; i < sizeof(temp_fita); i++){
             if(temp_fita[i] != '-') break;
-            temp_fita[i] = '-';
+            temp_fita[i] = ' ';
         }
 
+        //Encontra a nova palavra na fita, passa para a palavra e para a fita temporaria
         for(int i = 0; i < sizeof(palavra); i++){
             if(fita[cabecote] == ' ') break;
 
             palavra[i] = fita[cabecote];
             temp_fita[i] = fita[cabecote];
+            temp_fita[i+1] = '-';
             cabecote += 1;
+        }
+
+        if(palavra[0] != 'a' && palavra[0] != 'b'){
+            break;
         }
 
         for(int i = 0; i < sizeof(palavra);){
@@ -105,10 +126,11 @@ int main(){
         }
 
         if(estado == qtdEstadoes){
-            printf("%s OK\n", palavra);
+            print_s(palavra, sizeof(palavra));
+            printf(" OK\n");
         }else{
-            printf("%s not OK\n", palavra);
+            print_s(palavra, sizeof(palavra));
+            printf(" not OK\n");
         }
-        if(fita[cabecote+1] = ' ') break;
     }
 }

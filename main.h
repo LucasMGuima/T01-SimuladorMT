@@ -18,4 +18,9 @@ int main();
 */
 void entrada_dados();
 
+/*
+*   Escreve uma string na tela até o primeiro espaco em branco
+*/
+void print_s(char string[], int size);
+
 #endif

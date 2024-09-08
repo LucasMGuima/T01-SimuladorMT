@@ -13,5 +13,6 @@ Transicao checar_transicao(Transicao transicoes[], unsigned short int qtd_transi
         if(t.estado == estado_atual && t.simboloLeitura == simbulo_lido) return t;
     }
     Transicao t;
+    t.estadoAlvo = 0;
     return t;
 }
