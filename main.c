@@ -15,6 +15,15 @@ void print_s(char string[], int size){
     }
 }
 
+int alfabeto_contem(char alfabeto[], int size_alfabeto, char simbulo){
+    if(!simbulo) return FALSE;
+
+    for(int i = 0; i < size_alfabeto; i++){
+        if(alfabeto[i] == simbulo) return TRUE;
+    }
+    return FALSE;
+}
+
 void entrada_dados(){
     printf("Alfabeto: ");
     scanf("%s", &alfabeto);
@@ -49,14 +58,14 @@ void entrada_dados(){
     scanf("%d", &nPalavras);
 
     // Coleta as palavras e armazena na fita
-    char palavra[100];
+    char t_palavra[100];
     int cabecote = 0;
     for(int i = 0; i < nPalavras; i++){
-        scanf("%s", &palavra);
-        for(int j = 0; j < sizeof(palavra); j++){
-            if(!palavra[j]) break;
+        scanf("%s", &t_palavra);
+        for(int j = 0; j < sizeof(t_palavra); j++){
+            if(!t_palavra[j]) break;
 
-            fita[cabecote] = palavra[j];
+            fita[cabecote] = t_palavra[j];
             cabecote += 1;
         }
         fita[cabecote] = ' ';
@@ -74,8 +83,7 @@ int main(){
     // Verifica as palavras
     // Pega uma palavra da fita
     int cabecote = 0;
-
-    printf("%s \n", fita);
+    int curr_palavra = 1;
 
     printf("------------\n");
     for(;cabecote < sizeof(fita); cabecote++){
@@ -103,7 +111,7 @@ int main(){
             cabecote += 1;
         }
 
-        if(palavra[0] != 'a' && palavra[0] != 'b'){
+        if(alfabeto_contem(alfabeto, sizeof(alfabeto), palavra[0]) == FALSE){
             break;
         }
 
@@ -125,6 +133,8 @@ int main(){
             }
         }
 
+        printf("%d - ", curr_palavra);
+        curr_palavra++;
         if(estado == qtdEstadoes){
             print_s(palavra, sizeof(palavra));
             printf(" OK\n");
