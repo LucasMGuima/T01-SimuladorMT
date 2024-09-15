@@ -19,8 +19,9 @@ typedef struct mt{
 *   Entrada dos dados da Maquina de Truing a ser simulada
 *   
 *   @param mt Variavel que referencia maquian de turing
+*   @return Rtorna uma MT com os dados de entrada
 */
-void entrada_dados(MT mt);
+MT entrada_dados(MT mt);
 
 /*
 *   Processa as palavras entradas em relação a MT, e escreve na tela se são validas ou não

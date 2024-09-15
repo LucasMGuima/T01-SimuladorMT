@@ -23,7 +23,7 @@ int alfabeto_contem(char alfabeto[], int size_alfabeto, char simbulo){
     return FALSE;
 }
 
-void entrada_dados(MT mt){
+MT entrada_dados(MT mt){
     printf("Alfabeto: ");
     scanf("%s", &mt.alfabeto);
     printf("Quantdade de Estados: ");
@@ -70,6 +70,8 @@ void entrada_dados(MT mt){
         mt.fita[cabecote] = ' ';
         cabecote += 1;
     }
+
+    return mt;
 }
 
 void processar_palavras(MT mt){
@@ -83,23 +85,25 @@ void processar_palavras(MT mt){
     int curr_palavra = 1;
 
     printf("------------\n");
-    for(;cabecote < sizeof(&mt.fita); cabecote++){
+    for(;cabecote < sizeof(mt.fita); cabecote++){
+        if(curr_palavra > mt.nPalavras) break;
+        
         int estado = 1;
 
         //Limpa a palavra
-        for(int i = 0; i < sizeof(&mt.palavra); i++){
+        for(int i = 0; i < sizeof(mt.palavra); i++){
             if(mt.palavra[i] == '-') break;
             mt.palavra[i] = ' ';
         }
 
         //Limpa a fita temporaria
-        for(int i = 0; i < sizeof(&mt.temp_fita); i++){
+        for(int i = 0; i < sizeof(mt.temp_fita); i++){
             if(mt.temp_fita[i] != '-') break;
             mt.temp_fita[i] = ' ';
         }
 
         //Encontra a nova palavra na fita, passa para a palavra e para a fita temporaria
-        for(int i = 0; i < sizeof(&mt.palavra); i++){
+        for(int i = 0; i < sizeof(mt.palavra); i++){
             if(mt.fita[cabecote] == ' ') break;
 
             mt.palavra[i] = mt.fita[cabecote];
@@ -108,12 +112,7 @@ void processar_palavras(MT mt){
             cabecote += 1;
         }
 
-        if(alfabeto_contem(mt.alfabeto, sizeof(&mt.alfabeto), mt.palavra[0]) == FALSE){
-            printf("Fechado \n");
-            break;
-        }
-
-        for(int i = 0; i < sizeof(&mt.palavra);){
+        for(int i = 0; i < sizeof(mt.palavra);){
             Transicao t = checar_transicao(transicoes, mt.qtdTransicoes, estado, mt.temp_fita[i]);
             estado = t.estadoAlvo;
             if(estado == mt.qtdEstadoes || estado == 0) break;
@@ -134,10 +133,10 @@ void processar_palavras(MT mt){
         printf("%d - ", curr_palavra);
         curr_palavra++;
         if(estado == mt.qtdEstadoes){
-            print_s(mt.palavra, sizeof(&mt.palavra));
+            print_s(mt.palavra, sizeof(mt.palavra));
             printf(" OK\n");
         }else{
-            print_s(mt.palavra, sizeof(&mt.palavra));
+            print_s(mt.palavra, sizeof(mt.palavra));
             printf(" not OK\n");
         }
     }

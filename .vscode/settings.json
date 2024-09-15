@@ -2,5 +2,7 @@
     "files.associations": {
         "tipos.h": "c",
         "mt.h": "c"
-    }
+
+    },
+    "C_Cpp.default.compilerPath": "f:\\mingw32\\bin\\gcc.exe"
 }

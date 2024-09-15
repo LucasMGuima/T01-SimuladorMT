@@ -6,6 +6,6 @@
 
 int main(){
     MT mt;
-    entrada_dados(mt);  
+    mt = entrada_dados(mt);  
     processar_palavras(mt);
 }
