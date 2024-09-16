@@ -26,9 +26,9 @@ int alfabeto_contem(char alfabeto[], int size_alfabeto, char simbulo){
 MT entrada_dados(MT mt){
     printf("Alfabeto: ");
     scanf("%s", &mt.alfabeto);
-    printf("Quantdade de Estados: ");
+    printf("Quantidade de Estados: ");
     scanf("%d", &mt.qtdEstadoes);
-    printf("Quandtode de Transicoes: ");
+    printf("Quantidade de Transicoes: ");
     scanf("%d", &mt.qtdTransicoes);
 
     printf("Transicoes: \n");
