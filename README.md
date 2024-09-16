@@ -19,7 +19,7 @@ Para se utilizar o simulador, se pode:
 
 1. Baixar o executável;
 
-    Basta fazer o download do executável dentro da pasta [/simulador](/simulador)
+    Basta fazer o download do executável dentro da pasta [/simulador](/simulador/simulador.zip)
 2. Compilar na própria máquina.
 
     Para compilar na própria máquina será necessário fazer o download deste repositório, e ter um ambiente C configurado.  
