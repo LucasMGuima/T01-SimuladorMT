@@ -4,7 +4,7 @@ Programa feito em C capaz de interpretar e simular uma dada máquina de Turing.
 
 ## Caracteristicas
 
-O simulador possui algumas limitações em relação a sua quantiade de transições e tamanhos de fitas, sendo elas:
+O simulador possui algumas limitações em relação a sua quantidade de transições e tamanhos de fitas, sendo elas:
 
 > [!WARNING]
 >
@@ -19,7 +19,7 @@ Para se utilizar o simulador, se pode:
 
 1. Baixar o executável;
 
-    Basta fazer o download do executável dentro da pasta [/simulador]("./simulador")
+    Basta fazer o download do executável dentro da pasta [/simulador](/simulador)
 2. Compilar na própria máquina.
 
     Para compilar na própria máquina será necessário fazer o download deste repositório, e ter um ambiente C configurado.  
