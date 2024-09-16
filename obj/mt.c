@@ -75,12 +75,12 @@ MT entrada_dados(MT mt){
 }
 
 void processar_palavras(MT mt){
+    // Inicia a fita temporaria
     for(int i = 0; i < sizeof(mt.temp_fita); i++){
         mt.temp_fita[i] = '-';
     }
 
-    // Verifica as palavras
-    // Pega uma palavra da fita
+    // Coloca o cabecote no inicio, e inicia a contagem de palavras
     int cabecote = 0;
     int curr_palavra = 1;
 
@@ -130,6 +130,7 @@ void processar_palavras(MT mt){
             }
         }
 
+        // Mostra se a palavra é aceita ou não
         printf("%d - ", curr_palavra);
         curr_palavra++;
         if(estado == mt.qtdEstadoes){
